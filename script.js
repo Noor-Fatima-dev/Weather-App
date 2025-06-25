@@ -5,7 +5,7 @@ const weatherDiv = document.querySelector("#weather-div");
 const apiKey = "6db1b6f1f8954c058e7203705252406";
 
 async function getWeather(city) {             // You can't use await without marking the function as async.await pauses the function until the promise is done.
-    let url = `http://api.weatherapi.com/v1/current.json?key=${apiKey}&q=${city}&aqi=yes`;
+    let url = `https://api.weatherapi.com/v1/current.json?key=${apiKey}&q=${encodeURIComponent(city)}&aqi=yes`;
     try {
         const response  = await fetch(url);       // Ask server for weather
         
